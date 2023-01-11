@@ -1,0 +1,24 @@
+Q:
+
+As per details shared by the development team, the new application release has some dependencies on the back end. There are some packages/services that need to be installed on all app servers under Stratos Datacenter. As per requirements please perform the following steps:
+
+
+
+a. Install postfix package on all the application servers.
+
+b. Once installed, make sure it is enabled to start during boot.
+
+A:
+
+    sudo yum install postfix
+    sudo systemctl start postfix
+    sudo systemctl status postfix
+    sudo systemctl -l status postfix
+    sudo vi etc/hosts
+    sudo vi /etc/hosts
+    Disable IPv6: Comment the ipv6 entry in /etc/hosts file.		#::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+    sudo systemctl restart postfix
+    sudo systemctl status postfix
+    sudo systemctl enable postfix
+    sudo systemctl status postfix
